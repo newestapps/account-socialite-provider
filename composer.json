@@ -1,6 +1,6 @@
 {
     "name": "newestapps/socialite-provider",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "description": "Newestapps OAuth2 Provider for Laravel Socialite",
     "license": "MIT",

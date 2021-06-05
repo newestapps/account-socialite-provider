@@ -8,16 +8,11 @@ composer require newesatpps/socialite-provider
 
 [comment]: <> (Please see the [Base Installation Guide]&#40;https://socialiteproviders.com/usage/&#41;, then follow the provider specific instructions below.)
 
-## Add OPENID ISSUER to `.env`
-
-```bash
-NEWESTAPPS_OPENID_ISSUER="https://nw-ecommerce.test"
-```
-
 ### Add configuration to `config/services.php`
 
 ```php
 'newestapps' => [    
+  'issuer' => env('NEWESTAPPS_OPENID_ISSUER'),  
   'client_id' => env('NEWESTAPPS_CLIENT_ID'),  
   'client_secret' => env('NEWESTAPPS_CLIENT_SECRET'),  
   'redirect' => env('NEWESTAPPS_REDIRECT_URI'),

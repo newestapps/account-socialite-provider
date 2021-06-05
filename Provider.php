@@ -12,7 +12,7 @@ class Provider extends AbstractProvider
      */
     public const IDENTIFIER = 'NEWESTAPPS';
 
-    const ISSUER = 'https://oauth.newestapps.com.br';
+    const ISSUER = 'https://newestapps.com.br';
 
     /**
      * {@inheritdoc}
@@ -33,7 +33,7 @@ class Provider extends AbstractProvider
     protected function getAuthUrl($state)
     {
         return $this->buildAuthUrlFromBase(
-            env( 'NEWESTAPPS_OPENID_ISSUER', self::ISSUER) . '/oauth/authorize',
+            config('services.newestapps.issuer', self::ISSUER) . '/oauth/authorize',
             $state
         );
     }
@@ -43,7 +43,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return env( 'NEWESTAPPS_OPENID_ISSUER', self::ISSUER) . '/oauth/token';
+        return config('services.newestapps.issuer', self::ISSUER) . '/oauth/token';
     }
 
     /**
@@ -52,7 +52,7 @@ class Provider extends AbstractProvider
     protected function getUserByToken($token)
     {
         $response = $this->getHttpClient()->get(
-            env( 'NEWESTAPPS_OPENID_ISSUER', self::ISSUER) . '/api/v1/user',
+            config('services.newestapps.issuer', self::ISSUER) . '/api/v1/user',
             [
                 'headers' => [
                     'Authorization' => 'Bearer '.$token,
